@@ -1,0 +1,19 @@
+SAMPLES = ["S" + str(i) for i in range(1000)]
+
+rule all:
+    input: expand("rule1/{sample}/DONE", sample=SAMPLES)
+
+
+rule rule1:
+    output:
+        "rule1/{sample}/DONE"
+    threads: 1
+    resources:
+        time='04:00:00',
+        mem_mb='100M',
+    shell:
+        r"""
+        sleep 1
+        touch {output}
+        """
+
