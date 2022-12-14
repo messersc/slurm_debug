@@ -1,4 +1,4 @@
-SAMPLES = ["S" + str(i) for i in range(1000)]
+SAMPLES = ["S" + str(i) for i in range(20)]
 
 rule all:
     input: expand("rule1/{sample}/DONE", sample=SAMPLES)
